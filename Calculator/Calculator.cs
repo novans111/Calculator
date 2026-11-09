@@ -1,11 +1,12 @@
 using System;
-using.System.Forms;
+using System.Windows.Forms;
 
 namespace Calculator
 {
     public partial class Calculator : Form
     {
-        double firstNumber = 0; 
+        double firstNumber = 0;
+        double secondNumber = 0;
         string operation = "";
 
         public Calculator()
