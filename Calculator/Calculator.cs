@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Calculator
@@ -15,12 +15,15 @@ namespace Calculator
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (textBox1.Text.Length > 1)
+            {
+                textBox1.Text = textBox1.Text.Substring(0,textBox1.Text.Length-1);
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -30,7 +33,14 @@ namespace Calculator
 
         private void button18_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + ",";
+            if (textBox1.Text.Contains(","))
+            {
+                return;
+            } else
+            {
+                textBox1.Text = textBox1.Text + ",";
+            }
+
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -77,6 +87,7 @@ namespace Calculator
                 }
                 result = firstNumber / secondNumber;
             }
+            
 
             
             textBox1.Text = result.ToString();
@@ -153,6 +164,20 @@ namespace Calculator
         private void button8_Click(object sender, EventArgs e)
         {
             textBox1.Text = textBox1.Text + "9";
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            firstNumber = Convert.ToDouble(textBox1.Text);
+            textBox1.Text = Math.Sqrt(firstNumber).ToString();
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //if (firstNumber[0] != "-")
+            //{
+            //    textBox1.Text = "-" +
+            //}
         }
     }
 }
