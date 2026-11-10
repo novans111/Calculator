@@ -1,11 +1,11 @@
 using System;
-using.System.Forms;
+using System.Windows.Forms;
 
 namespace Calculator
 {
     public partial class Calculator : Form
     {
-        double firstNumber = 0; 
+        double firstNumber = 0;
         string operation = "";
 
         public Calculator()
@@ -15,7 +15,10 @@ namespace Calculator
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (textBox1.Text.Length > 1)
+            {
+                textBox1.Text = textBox1.Text.Substring(0, textBox1.Text.Length - 1);
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -30,7 +33,15 @@ namespace Calculator
 
         private void button18_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + ",";
+            if (textBox1.Text.Contains(","))
+            {
+                return;
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + ",";
+            }
+
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -45,8 +56,8 @@ namespace Calculator
 
         private void button15_Click(object sender, EventArgs e)
         {
-            firstNumber = Convert.ToDouble(textBox1.Text); 
-            operation = "+";                               
+            firstNumber = Convert.ToDouble(textBox1.Text);
+            operation = "+";
             textBox1.Text = "";
         }
 
@@ -73,33 +84,34 @@ namespace Calculator
                 if (secondNumber == 0)
                 {
                     MessageBox.Show("ERROR");
-                    return; 
+                    return;
                 }
                 result = firstNumber / secondNumber;
             }
 
-            
+
+
             textBox1.Text = result.ToString();
         }
 
         private void button23_Click(object sender, EventArgs e)
         {
-            firstNumber = Convert.ToDouble(textBox1.Text); 
-            operation = "-";                               
+            firstNumber = Convert.ToDouble(textBox1.Text);
+            operation = "-";
             textBox1.Text = "";
         }
 
         private void button22_Click(object sender, EventArgs e)
         {
-            firstNumber = Convert.ToDouble(textBox1.Text); 
-            operation = "*";                               
+            firstNumber = Convert.ToDouble(textBox1.Text);
+            operation = "*";
             textBox1.Text = "";
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            firstNumber = Convert.ToDouble(textBox1.Text); 
-            operation = "/";                               
+            firstNumber = Convert.ToDouble(textBox1.Text);
+            operation = "/";
             textBox1.Text = "";
         }
 
@@ -153,6 +165,55 @@ namespace Calculator
         private void button8_Click(object sender, EventArgs e)
         {
             textBox1.Text = textBox1.Text + "9";
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            double number = Convert.ToDouble(textBox1.Text);
+            if (number < 0)
+            {
+                MessageBox.Show("ERROR");
+                return;
+            }
+            textBox1.Text = Math.Sqrt(number).ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "" && textBox1.Text != "0")
+            {
+                if (textBox1.Text[0] == '-')
+                {
+                    textBox1.Text = textBox1.Text.Substring(1);
+                }
+                else
+                {
+                    textBox1.Text = "-" + textBox1.Text;
+                }
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            double secondNumber = Convert.ToDouble(textBox1.Text);
+            if (operation == "+" || operation == "-")
+            {
+                textBox1.Text = (firstNumber * secondNumber / 100).ToString();
+            }
+            else
+            {
+                textBox1.Text = (secondNumber / 100).ToString();
+            }
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            double number = Convert.ToDouble(textBox1.Text);
+            if (number == 0)
+            {
+                MessageBox.Show("ERROR");
+                return;
+            }
+            textBox1.Text = (1 / number).ToString();
         }
     }
 }

@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="\\edu.local\public\studenthomes\24300446\Desktop\calculator\Form1.cs" Link="Form1.cs" />
+    <Compile Include="C:\Users\24300446\source\repos\novans111\Calculator\Calculator\Calculator.cs" Link="Form1.cs" />
   </ItemGroup>
 
 </Project>
