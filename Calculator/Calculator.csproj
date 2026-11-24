@@ -8,8 +8,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="C:\Users\24300446\source\repos\novans111\Calculator\Calculator\Calculator.cs" Link="Form1.cs" />
-  </ItemGroup>
-
 </Project>
